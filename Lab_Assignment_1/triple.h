@@ -2,7 +2,6 @@
 #include <string>
 using namespace std;
 
-
 wstring validlname();
 int validid();
 int validnumbertriple(string method);

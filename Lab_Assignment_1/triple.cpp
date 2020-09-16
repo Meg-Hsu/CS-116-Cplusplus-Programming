@@ -1,13 +1,10 @@
 #include "triple.h"
 #include <iostream>
-#include <algorithm>
 #include <string>
-#include <cmath>
 using namespace std;
 
+//This function uses wsting because it uses .size() to count the number of characters in the string so that the last name can be within the 2-15 character parameter.
 wstring validlname() {
-//input is a string, has to be from 2-15 characters
-//verify that the input is all letters and not numbers/combo of other things*
 	while (true) {
 		wstring lname;
 		double size;
@@ -24,6 +21,7 @@ wstring validlname() {
 	}
 }
 
+//This function makes sure that the ID entered in is at least six numbers long.
 int validid() {
 	while (true) {
 		int id;
@@ -32,9 +30,6 @@ int validid() {
 				<< "\nPlease enter your student ID (at least 6 characters): ";
 		cin >> id;
 		size = id > 0 ? (int) log10((double) id) + 1 : 1;
-
-
-
 		if (size < 6) {
 			cout << "The ID entered is less than 6 numbers. Please try again.";
 		} else {
@@ -44,8 +39,8 @@ int validid() {
 	}
 }
 
+//This function takes user input and makes sure that the number entered in is a positive number before sending it back to main
 int validnumbertriple(string method) {
-//takes the number entered into the program and checks if its positive. then multiplies by 3
 	while (true) {
 		int input;
 		cout
@@ -59,17 +54,18 @@ int validnumbertriple(string method) {
 	}
 }
 
+//This function changes the actual value of the number when entered in and sends that back to main
 int tripleByValue(int num) {
-	//passes a copy of count by value, triples the copy and returns the new value
 	return num * 3;
 }
 
+//This function does the calculation on a reference parameter, which is why output is called through this function and not in main like the rest of the information used in the program.
 void tripleByReference(int &num) {
-	//passes count by reference via a reference parameter and triples the original value of count through its alias (i.e., the reference parameter).
 	num = num * 3;
 	cout << "The number tripled by reference is " << num << ".\n\n";
 }
 
+//This function just outputs a menu which serves as an overview of the program.
 void intro() {
 	cout
 			<< "This program collects the following information:\n"
@@ -78,6 +74,7 @@ void intro() {
 					"- A positive numerical value to be tripled through various (value and reference) means\n";
 }
 
+//This function is used in the program to prompt the user if they would like to use the program again.
 bool runagain() {
 	cout << "\nWould you like to run this program again? (y/n) ";
 	bool ans;

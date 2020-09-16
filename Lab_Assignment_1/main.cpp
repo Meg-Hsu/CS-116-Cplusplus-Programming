@@ -37,14 +37,13 @@
 //Would you like to run this program again? (y/n) n
 
 #include <iostream>
-#include <algorithm>
 #include <string>
-#include <cmath>
 #include "triple.h"
 using namespace std;
 
 
 int main() {
+	//There's a do while loop in main so that the runagain() function can be used.
 	do {
 		intro();
 		wstring name;
@@ -60,11 +59,7 @@ int main() {
 		cout << "\n\nThe original number to be tripled by value is " << originalvalue << ".\n";
 		cout << "The original number to be tripled by reference is "<< originalreference << ".\n\n";
 
-		int tripledvalue;
-		int tripledreference;
-		tripledvalue = tripleByValue(originalvalue);
-		cout << "The number tripled by value is " << tripledvalue << ".\n";
-
+		cout << "The number tripled by value is " << tripleByValue(originalvalue) << ".\n";
 		tripleByReference(originalreference);
 
 		cout << "The value of the number in main after tripled by value is " << originalvalue << ".\n";
