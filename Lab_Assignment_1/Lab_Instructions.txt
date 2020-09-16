@@ -1,0 +1,82 @@
+Multiple File Compilation, Pass-by-Value, Pass-by-Reference
+
+Every programming assignment is as much a test of English language comprehension as it is a test of programming or comprehension skills. This week, the explanation of the task below is given clearly in plain English if you read carefully. However, if there is any question about what is being asked, you are urged to ask for clarification in the public forums.  
+Make sure that you have read and understood:
+
+Unit modules 1 and 2
+C++  Coding Style GuidelinesPreview the document
+before submitting this assignment.  Hand in only one submission.
+
+
+
+Lab Assignment Objectives
+
+Obtain valid user input at runtime.
+Work with expressions, variables and assignments.  Be able to construct arithmetic and Boolean C++ expressions and assignment statements that correspond to informal specifications in English. 
+Construct C++ expressions and statements involving strings and  string operators (including format specifiers) that correspond to lab specifications. 
+Use C++ Basic Data Types understanding what is meant by an object's type and value.  Understand how the type determines the operators and methods that can be applied to the object. Be aware of how implicit and explicit type conversion between the basic  data types are done.
+Write alternative functions to include pass-by-value and pass-by-reference implementation. 
+Import and use a module from the Standard C++ library.
+
+
+Understand the Application
+
+Obtain the family (last name), student ID of the user and value to be tripled at run time. 
+Based on the user input, you program will create one str variable, name, and two int variables, id and count, into which you will store:
+name = Your last (i.e. family) name.
+id = Your student id.
+count = The int value to be tripled.
+In order to receive any credit for this assignment, your id must match what I have for you on my class roster.
+
+
+The Program Specification
+
+The first thing your program needs to do is obtain valid user input for your family name. 
+The second thing your program needs to do is obtain valid user input for your student ID.   
+The third thing your program needs to do is obtain valid user input for the int value to be tripled.
+Write a complete C++ program with the two alternative functions specified below, each of which simply triples the variable count defined in main. Then compare and contrast the two approaches.
+These two functions are:
+
+function tripleByValue that passes a copy of count by value, triples the copy and returns the new value and
+function tripleByReference that passes county by reference via a reference parameter and triples the original value of count through its alias (i.e., the reference parameter).
+
+
+Testing Requirements
+
+Input Error Checking: Validate all user input before computation.  A valid name must contain 2..15 chars.  A valid student id contains the rightmost 6 digits of your student id (i.e. no leading 0).  A valid count parameter >= 0.
+Provide a commented out copy of your program test run after the source statements in your main.cpp file. 
+
+
+Example Test Run
+Your program display should look something like this partial run (although the values will differ for each student):
+	Enter your last name (2..15): a
+	Enter your last name (2..15): aaaaaaaaaaaaaaaa
+	Enter your last name (2..15): Ohlone
+	Enter your student id: (6 digits): 12345
+	Enter your student id: (6 digits): 123456
+	Enter a value for count: ( >= 0): -1
+	Enter a value for count: ( >= 0): 3
+
+	Value of count before call to tripleByValue() is: 3
+	Value returned from tripleByValue() is: 9
+	Value of count (in main) after tripleCallByValue() is: 3
+
+	Value of count before call to tripleByReference() is: 3
+	Value of count (in main) after call to tripleByReference() is: 9
+	
+	
+What to Turn In
+Hand in 3 files: main.cpp, triple.cpp and triple.h  No zip files.
+
+
+Tips and Requirements
+Use a space around all binary operators.
+Define and use named constants in lieu of literal values. 
+Use the C++ string class. 
+Ensure that your solution is well organized. Provide a program header and comments to document and organize your source code. 
+Provide a commented out copy of your program run.  Enclose the run inside of multi-line comment delimiters so that your program will run in the grader test bed. Place the run after your program source code in the main.cpp file. 
+
+
+Submitting multiple files to an assignment
+Your lab 1 assignment requires uploading more than one file; you should upload these 3  files as one submission. In this assignment you need to upload 2 .cpp files (main.cpp  and triple.cpp) and 1 .h file (triple.h). To add these files, the Add Another File button  is clicked to upload the two files one by one.  Check to make sure that both files uploaded okay. When finished click Submit Assignment.
+
