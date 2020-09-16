@@ -10,8 +10,14 @@
 //- Student ID (6 numbers, can't lead with 0)
 //- A positive numerical value to be tripled through various (value and reference) means
 //
+//Please enter your last name (between 2 and 15 characters): a
+//The name entered is not between 2 and 15 characters. Please try again.
+//Please enter your last name (between 2 and 15 characters): aaaaaaaaaaaaaaaa
+//The name entered is not between 2 and 15 characters. Please try again.
 //Please enter your last name (between 2 and 15 characters): Hsu
 //
+//Please enter your student ID (at least 6 characters): 12345
+//The ID entered is less than 6 numbers. Please try again.
 //Please enter your student ID (at least 6 characters): 497864
 //
 //Please enter a positive numerical value you would like to have tripled by value: -1
@@ -35,6 +41,7 @@
 //The value of the number in main after tripled by value is 9.
 //
 //Would you like to run this program again? (y/n) n
+
 
 #include <iostream>
 #include <string>
