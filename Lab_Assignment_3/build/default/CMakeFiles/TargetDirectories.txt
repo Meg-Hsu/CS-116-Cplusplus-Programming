@@ -1,3 +1,0 @@
-/Users/meghsu/Desktop/Ohlone/CS-116/Lab_Assignment_3/build/default/CMakeFiles/rebuild_cache.dir
-/Users/meghsu/Desktop/Ohlone/CS-116/Lab_Assignment_3/build/default/CMakeFiles/edit_cache.dir
-/Users/meghsu/Desktop/Ohlone/CS-116/Lab_Assignment_3/build/default/CMakeFiles/Lab_Assignment_3.dir
