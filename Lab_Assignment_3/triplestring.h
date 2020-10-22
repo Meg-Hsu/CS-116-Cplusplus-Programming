@@ -42,4 +42,11 @@ public:
 	bool setString3(string str3);
 };
 
+int getBet();
+TripleString pull();
+void display(TripleString thePull, int winnings);
+string randString();
+int getPayMultiplier (TripleString thePull);
+
+
 #endif /* TripleString_H_ */
