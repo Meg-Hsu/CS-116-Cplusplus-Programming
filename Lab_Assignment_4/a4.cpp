@@ -10,12 +10,13 @@ using namespace std;
 
 int main() {
 	srand(time(NULL));
-	int amountbet, winnings;
+	int quit, amountbet, winnings;
+	quit = 0;
 	TripleString thePull;
 
 	while (true) {
 		amountbet = getBet();
-		if (amountbet == 0)
+		if (amountbet == quit)
 			break;
 		thePull = pull();
 		winnings = amountbet * getPayMultiplier(thePull);
