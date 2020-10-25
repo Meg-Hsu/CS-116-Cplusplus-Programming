@@ -4,4 +4,4 @@ set(CMAKE_CXX_STANDARD 17)
 
 project (Lab_Assignment_5)
 
-add_executable(Lab_Assignment_5 Lab_Assignment_5.cpp complex.h)
+add_executable(Lab_Assignment_5 Lab_Assignment_5.cpp complex.h complex.cpp)
