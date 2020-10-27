@@ -1,9 +1,7 @@
-/*
- * mhcomplex.h
- *
- *  Created on: Oct 24, 2020
- *      Author: meghsu
- */
+//Name: Meg Hsu
+//Class: CS-116-03: C++ Programming
+//Professor Lamble
+//27 October 2020
 
 #ifndef MHCOMPLEX_H_
 #define MHCOMPLEX_H_
@@ -22,118 +20,50 @@ private:
 
 public:
 	//constructor
-	Complex(double thereal = 0, double theimag = 0) :
-			real(thereal), imag(theimag) {
-	}
+	Complex(double thereal = 0, double theimag = 0);
 
 	//accessors
-	double getreal() {
-		return real;
-	}
-	double getimag() {
-		return imag;
-	}
+	double getreal();
+	double getimag();
 
 	//mutators
-	bool setreal(double thereal) {
-		thereal = real;
-		return true;
-	}
+	bool setreal(double thereal);
+	bool setimag(double theimag);
 
-	bool setimag(double theimag) {
-		theimag = imag;
-		return true;
-	}
+	//other. functions
+	double modulus();
+	Complex reciprocal();
+	string toString();
 
-	double modulus() {
-		double length;
-		length = sqrt(pow(real, 2) + pow(imag, 2));
-		return length;
-	}
-
-	Complex reciprocal() {
-		double d = real * real + imag * imag;
-		if (d < 0.00000001) {
-			throw DivByZeroException();
-		}
-		return Complex(real / d, -imag / d);
-	}
-
-	string toString() {
-		std::ostringstream ss;
-		ss << "(" << to_string(real) << ", " << to_string(imag) << ")";
-		return ss.str();
-	}
-
+	//DivByZeroException
 	class DivByZeroException: virtual public std::exception {
 	public:
-		DivByZeroException() {
-			err_msg = "Can't divide by zero";
-		}
-		virtual ~DivByZeroException() throw () {
-		}
-		virtual const char* what() const throw () {
-			return err_msg.c_str();
-		}
+		DivByZeroException();
+		virtual ~DivByZeroException() throw ();
+		virtual const char* what() const throw ();
 	private:
 		string err_msg;
 	};
 
+	Complex& operator=(const Complex &other);
+
+	//friend operator functions declarations
 	friend Complex operator+(Complex a, Complex b);
 	friend Complex operator-(Complex a, Complex b);
 	friend Complex operator*(Complex a, Complex b);
 	friend Complex operator/(Complex a, Complex b);
-	Complex& operator=(const Complex& other);
 	friend bool operator==(Complex a, Complex b);
 	friend bool operator<(Complex a, Complex b);
-
 	friend ostream& operator<<(ostream &o, Complex c);
 };
 
-Complex operator+(Complex a, Complex b) {
-	return Complex(a.real + b.real, a.imag + b.imag);
-}
-
-Complex operator-(Complex a, Complex b) {
-	return Complex(a.real - b.real, a.imag - b.imag);
-}
-
-Complex operator*(Complex a, Complex b) {
-	return Complex((a.real * b.real) - (a.imag * b.imag),
-			(a.real * b.imag) + (b.real * a.imag));
-}
-
-Complex operator/(Complex a, Complex b) {
-	return a * b.reciprocal();
-}
-
-Complex& Complex::operator=(const Complex& other){
-	real = other.real;
-	imag = other.imag;
-	return *this;
-}
-
-ostream& operator<<(ostream &o, Complex c) {
-	o << "(" << c.real << ", " << c.imag << ")";
-	return o;
-}
-
-bool operator<(Complex a, Complex b) {
-
-	if (a.modulus() < b.modulus()) {
-		return true;
-	} else {
-		return false;
-	}
-}
-
-bool operator==(Complex a, Complex b) {
-	if (fabs(a.real - b.real) < 0.00000001
-			&& fabs(a.imag - b.imag) < 0.00000001) {
-		return true;
-	} else {
-		return false;
-	}
-}
+//operator functions declarations
+Complex operator+(Complex a, Complex b);
+Complex operator-(Complex a, Complex b);
+Complex operator*(Complex a, Complex b);
+Complex operator/(Complex a, Complex b);
+ostream& operator<<(ostream &o, Complex c);
+bool operator<(Complex a, Complex b);
+bool operator==(Complex a, Complex b);
 
 #endif /* MHCOMPLEX_H_ */
