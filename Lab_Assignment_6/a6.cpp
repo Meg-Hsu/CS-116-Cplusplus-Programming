@@ -83,8 +83,8 @@ int main() {
 
 	Complex j(3, 4), k(5, 6), l;
 	cout << "\nComparison (<) Tests: \n"
-			"Modululs of j = " << g.modulus() << "\n"
-			"Modulus of k = " << h.modulus() << "\n";
+			"Modululs of j = " << j.modulus() << "\n"
+			"Modulus of k = " << k.modulus() << "\n";
 	cout << "j < k " << (j < k ? "true" : "false") << endl;
 
 	Complex m(9, 10), n(7, 8), o;
@@ -160,7 +160,7 @@ int main() {
 //----------------------------------------
 //
 //Comparison (<) Tests:
-//Modululs of j = 7.81025
+//Modululs of j = 5
 //Modulus of k = 7.81025
 //j < k true
 //
@@ -178,6 +178,7 @@ int main() {
 //p = (3, 4)
 //q = (3, 4)
 //p == q true
+
 
 
 
