@@ -1,9 +1,7 @@
-/*
- * boolean.h
- *
- *  Created on: Nov 1, 2020
- *      Author: meghsu
- */
+//Name: Meg Hsu
+//Class: CS-116-03: C++ Programming
+//Professor Lamble
+//3 November 2020
 
 #ifndef BOOLEAN_H_
 #define BOOLEAN_H_
@@ -24,93 +22,20 @@ private:
 
 public:
 
-	BooleanFunc& operator=(const BooleanFunc& other) {
-		tableSize = other.tableSize;
-		if (truthTable != NULL) {
-			delete[] truthTable;
-		}
-		truthTable = new bool[tableSize];
-		for (int i = 0; i < tableSize; ++i) {
-			truthTable[i] = other.truthTable[i];
-		}
-		return *this;
-	}
-	//constructors / deconstructor
-	BooleanFunc(int tableSize = DEFAULT_TABLE_SIZE, bool evalReturnIfError =
-			false) : truthTable(NULL), state(false), evalReturnIfError(evalReturnIfError) {
-		//check for valid input
-		if (tableSize < MAX_TABLE_FOR_CLASS && tableSize > 0) {
-			this->tableSize = tableSize;
-		} else {
-			this->tableSize = DEFAULT_TABLE_SIZE;
-		}
-
-		truthTable = new bool[tableSize];
-	}
-
-	BooleanFunc(const BooleanFunc &bf) {
-		tableSize = bf.tableSize;
-		evalReturnIfError = bf.evalReturnIfError;
-		state = bf.state;
-
-		truthTable = new bool[tableSize];
-
-		for (int i = 0; i < tableSize; i++)
-			truthTable[i] = bf.truthTable[i];
-
-	}
-
-	~BooleanFunc() {
-		if (truthTable != NULL) {
-			delete[] truthTable;
-			truthTable = NULL;
-		}
-	}
+	BooleanFunc& operator=(const BooleanFunc &other);
+	BooleanFunc(int tableSize = DEFAULT_TABLE_SIZE,
+			bool evalReturnIfError = false);
+	BooleanFunc(const BooleanFunc &bf);
+	~BooleanFunc();
 
 	//mutators
-	bool setTruthTableUsingTrue(int inputsThatProduceTrue[], int arraySize) {
+	bool setTruthTableUsingTrue(int inputsThatProduceTrue[],
+			int arraySize);
+	bool setTruthTableUsingFalse(int inputsThatProduceFalse[],
+			int arraySize);
 
-		for (int i = 0; i < tableSize; ++i) {
-			truthTable[i] = false;
-		}
-
-		for (int i = 0; i < arraySize; ++i) {
-			if (inputsThatProduceTrue[i] < tableSize && inputsThatProduceTrue[i] >= 0) {
-				truthTable[inputsThatProduceTrue[i]] = true;
-			}
-		}
-
-		return arraySize <= tableSize;
-	}
-
-	bool setTruthTableUsingFalse(int inputsThatProduceFalse[], int arraySize) {
-
-		for (int i = 0; i < tableSize; ++i) {
-			truthTable[i] = true;
-		}
-
-		for (int i = 0; i < arraySize; ++i) {
-			if (inputsThatProduceFalse[i] < tableSize && inputsThatProduceFalse[i] >= 0) {
-				truthTable[inputsThatProduceFalse[i]] = false;
-			}
-		}
-
-		return arraySize <= tableSize;
-
-	}
-
-	bool eval(int input) {
-		if (input >= tableSize || input < 0) {
-			state = evalReturnIfError;
-		} else {
-			state = truthTable[input];
-		}
-		return state;
-	}
-
-	bool getState() {
-		return state;
-	}
+	bool eval(int input);
+	bool getState();
 
 	//static public members
 	const static int MAX_TABLE_FOR_CLASS;
