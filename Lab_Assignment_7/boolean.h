@@ -23,13 +23,6 @@ private:
 	bool state;
 
 public:
-	void print() {
-		cout << "BooleanFunc: " << this << ":" << truthTable << endl;
-		for (int i = 0; i < tableSize; ++i) {
-			cout << (truthTable[i] ? "T" : "F");
-		}
-		cout << endl;
-	}
 
 	BooleanFunc& operator=(const BooleanFunc& other) {
 		tableSize = other.tableSize;
@@ -46,23 +39,13 @@ public:
 	BooleanFunc(int tableSize = DEFAULT_TABLE_SIZE, bool evalReturnIfError =
 			false) : truthTable(NULL), state(false), evalReturnIfError(evalReturnIfError) {
 		//check for valid input
-		if (tableSize < MAX_TABLE_FOR_CLASS && tableSize > 0) { // TODO check if equal to max is fine
+		if (tableSize < MAX_TABLE_FOR_CLASS && tableSize > 0) {
 			this->tableSize = tableSize;
 		} else {
 			this->tableSize = DEFAULT_TABLE_SIZE;
 		}
 
-//		this->evalReturnIfError = evalReturnIfError;
-//		state = false;
-//		truthTable = NULL;
-
-		//allocate memory for array???
-		//do i need pointers here
 		truthTable = new bool[tableSize];
-		cout << "allocate table 1 " << this << ":" << truthTable << endl;
-
-//		for (int i = 0; i < tableSize; i++)
-//			truthTable[i] = evalReturnIfError;
 	}
 
 	BooleanFunc(const BooleanFunc &bf) {
@@ -70,9 +53,7 @@ public:
 		evalReturnIfError = bf.evalReturnIfError;
 		state = bf.state;
 
-		//allocate memory for array???
 		truthTable = new bool[tableSize];
-		cout << "\tallocate table 2 " << truthTable << endl;
 
 		for (int i = 0; i < tableSize; i++)
 			truthTable[i] = bf.truthTable[i];

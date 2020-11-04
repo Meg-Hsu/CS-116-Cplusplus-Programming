@@ -4,4 +4,4 @@ set(CMAKE_CXX_STANDARD 17)
 
 project (Lab_Assignment_7)
 
-add_executable(Lab_Assignment_7 a7.cpp boolean.h boolean.cpp)
+add_executable(Lab_Assignment_7 a7.cpp boolean.h boolean.cpp logic.h logic.cpp)

@@ -48,7 +48,6 @@ public:
 			return false;
 		} else {
 			this->numSegs = numSegs;
-			cout << "creating 7 segments" << endl;
 			segs = new BooleanFunc[numSegs];
 			return true;
 		}
@@ -57,9 +56,7 @@ public:
 	bool setSegment(int segNum, BooleanFunc &funcForThisSeg) {
 		if (segNum < 0 || segNum >= numSegs)
 			return false;
-		funcForThisSeg.print();
 		segs[segNum] = funcForThisSeg;
-		segs[segNum].print();
 		return true;
 	}
 
