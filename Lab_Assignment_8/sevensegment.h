@@ -1,9 +1,7 @@
-/*
- * sevensegment.h
- *
- *  Created on: Nov 8, 2020
- *      Author: meghsu
- */
+//Name: Meg Hsu
+//Class: CS-116-03: C++ Programming
+//Professor Lamble
+//10 November 2020
 
 #ifndef SEVENSEGMENT_H_
 #define SEVENSEGMENT_H_
@@ -11,6 +9,9 @@
 #include <iostream>
 #include <string>
 #include <cmath>
+#include <cstring>
+#include "boolean.h"
+#include "logic.h"
 using namespace std;
 
 class SevenSegmentImage {
@@ -28,158 +29,44 @@ private:
 
 public:
 
-	//constructor
-	SevenSegmentImage(int width = MIN_WIDTH, int height = MIN_HEIGHT) {
-		data = NULL;
-		if (!setSize(width, height))
-			setSize(MIN_WIDTH, MIN_HEIGHT);
-	}
+	SevenSegmentImage(int width = MIN_WIDTH,
+			int height = MIN_HEIGHT);
 
-	//destructor
-	~SevenSegmentImage() {
-		deallocateArray();
-	}
+	~SevenSegmentImage();
 
-	void clearImage() {
-		for (int row = 0; row < bottomRow; row++)
-			for (int col = 0; col < rightCol; col++)
-				data[row][col] = false;
-	}
+	void clearImage();
+	bool turnOnCellsForSegment(char segment);
+	bool setSize(int width, int height);
+	void display();
 
-	bool turnOnCellsForSegment(char segment) {
-		switch (segment) {
-		case 'a':
-			drawHorizontal(topRow);
-			break;
-		case 'b':
-			drawVertical(rightCol, topRow, midRow);
-			break;
-		case 'c':
-			drawVertical(rightCol, midRow, bottomRow);
-			break;
-		case 'd':
-			drawHorizontal(bottomRow);
-			break;
-		case 'e':
-			drawVertical(leftCol, midRow, bottomRow);
-			break;
-		case 'f':
-			drawVertical(leftCol, topRow, midRow);
-			break;
-		case 'g':
-			drawHorizontal(midRow);
-			break;
-		default:
-			return false;
-		}
-		return true;
-	}
-
-	bool setSize(int width, int height) {
-		if (!validateSize(width, height))
-			return false;
-		deallocateArray();
-		topRow = 1;
-		midRow = (height + 1) / 2;
-		bottomRow = height;
-		leftCol = 1;
-		rightCol = width;
-		allocateCleanArray();
-		return true;
-	}
-
-	void display() {
-		for (int row = 0; row < bottomRow; row++) {
-			cout << "\n";
-			for (int col = 0; col < rightCol; col++)
-				cout << (data[row][col] ? DRAW_CHAR : BLANK_CHAR);
-		}
-	}
-
-	// deep copy stuff
-	SevenSegmentImage(const SevenSegmentImage &tdi) {
-		data = NULL;
-		setSize(tdi.rightCol, tdi.bottomRow);
-		for (int row = 0; row < tdi.bottomRow; row++)
-			for (int col = 0; col < tdi.rightCol; col++)
-				data[row][col] = tdi.data[row][col];
-	}
-
-	const SevenSegmentImage& operator=(const SevenSegmentImage &rhs) {
-		if (this != &rhs) {
-			this->setSize(rhs.rightCol, rhs.bottomRow);
-			for (int row = 0; row < rhs.bottomRow; row++)
-				for (int col = 0; col < rhs.rightCol; col++)
-					this->data[row][col] = rhs.data[row][col];
-		}
-		return *this;
-	}
+	SevenSegmentImage(const SevenSegmentImage &tdi);
+	const SevenSegmentImage& operator=
+			(const SevenSegmentImage &rhs);
 
 private:
-	static bool validateSize(int width, int height){
-	    if(width < MIN_WIDTH || width > MAX_WIDTH ||
-	        height < MIN_HEIGHT || height > MAX_HEIGHT || height % 2 == 0)
-	        return false;
-	    return true;
-	}
+	int _width, _height;
+	static bool validateSize(int width, int height);
 
-	void allocateCleanArray(){
-	    if (data != NULL)
-	        deallocateArray();
-
-	    data = new bool*[bottomRow];
-	    for (int row = 0; row < bottomRow; row++)
-	       data[row] = new bool[rightCol];
-
-	    for (int row = 0; row < bottomRow; row++)
-	        for (int col = 0; col < rightCol; col++)
-	            data[row][col] = false;
-	}
-
-	void deallocateArray(){
-	    if (data == NULL)
-	        return;
-
-	    for (int row = 0; row < bottomRow; row++)
-	        delete[] data[row];
-	    delete[] data;
-	    data = NULL;
-	}
-
-	// helpers - not required, but used by instructor
-	void drawHorizontal(int row){
-	    for(int col = 0; col < rightCol; col++)
-	        data[row - 1][col] = true;
-	}
-
-	void drawVertical(int col, int startRow, int stopRow){
-	    for(int row = startRow; row <= stopRow; row++)
-	        data[row - 1][col - 1] = true;
-	}
+	void allocateCleanArray();
+	void deallocateArray();
+	void drawHorizontal(int row);
+	void drawVertical(int col, int startRow,
+			int stopRow);
 
 };
 
-const string SevenSegmentImage::DRAW_CHAR = "*";
-const string SevenSegmentImage::BLANK_CHAR = " ";
-
-
-
-class SevenSegmentDisplay
-{
+class SevenSegmentDisplay {
 private:
-   SevenSegmentImage theImage;
-   SevenSegmentLogic theDisplay;
+	SevenSegmentImage theImage;
+	SevenSegmentLogic theDisplay;
 
 public:
-   SevenSegmentDisplay(
-      int width = SevenSegmentImage::MIN_WIDTH,
-      int height = SevenSegmentImage::MIN_HEIGHT
-      );
-   bool setSize( int width, int height );
-   void loadConsoleImage();
-   void consoleDisplay();
-   void eval( int input );
+	SevenSegmentDisplay(int width, int height);
+
+	bool setSize(int width, int height);
+	void loadConsoleImage();
+	void consoleDisplay();
+	void eval(int input);
 };
 
-
-#endif /* SEVENSEGMENT_H_ */
+#endif
