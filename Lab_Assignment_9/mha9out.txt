@@ -1,0 +1,54 @@
+Name: Meg Hsu
+Class: CS-116-03: C++ Programming
+Professor Lamble
+24 November 2020
+
+Command 1: GetLength - The length of the list = 0
+Command 2: PutItem - 5 was added to the list
+Command 3: PutItem - 7 was added to the list
+Command 4: PutItem - 6 was added to the list
+Command 5: PutItem - 9 was added to the list
+Command 6: PrintList - See below:
+
+List values
+9
+6
+7
+5
+Length of list = 4
+
+Command 7: PutItem - 1 was added to the list
+Command 8: PrintList - See below:
+
+List values
+1
+9
+6
+7
+5
+Length of list = 5
+
+Command 9: GetItem - 4 is not in the list
+Command 10: GetItem - 5 is in the list
+Command 11: GetItem - 9 is in the list
+Command 12: GetItem - 10 is not in the list
+Command 13: IsFull - The list is not full
+Command 14: DeleteItem - 5 was deleted from list
+Command 15: IsFull - The list is not full
+Command 16: DeleteItem - 1 was deleted from list
+Command 17: DeleteItem - 6 was deleted from list
+Command 18: DeleteItem - 9 was deleted from list
+Command 19: PrintList - See below:
+
+List values
+7
+Length of list = 1
+
+Command 20: MakeEmpty - The list is empty
+Command 21: PrintList - See below:
+
+List values
+Length of list = 0
+
+Command 22: Error - Error is not a valid command
+All commands completed.

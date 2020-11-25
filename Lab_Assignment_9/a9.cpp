@@ -51,7 +51,8 @@ int main() {
 	numCommands = 0;
 	while (command != "Quit") {
 		numCommands++;
-		outFile << "Command " << numCommands << ": " << command << " ";
+		outFile << "Command " << numCommands << ": "
+				<< command << " ";
 
 		if (command == "PutItem") {
 			inFile >> number;
@@ -78,7 +79,8 @@ int main() {
 			outFile << item.Print();
 			outFile << " was deleted from list" << endl;
 		} else if (command == "GetLength") {
-			outFile << "- The length of the list = " << list.GetLength() << endl;
+			outFile << "- The length of the list = "
+					<< list.GetLength() << endl;
 		} else if (command == "IsFull") {
 			if (list.IsFull()) {
 				outFile << "- The list is full" << endl;
@@ -97,7 +99,8 @@ int main() {
 			item.Initialize(number);
 			SplitList(list, item);
 		} else
-			outFile << "- " << command << " is not a valid command" << endl;
+			outFile << "- " << command << " is not a valid command"
+			<< endl;
 
 		inFile >> command;
 	}
@@ -106,7 +109,9 @@ int main() {
 	outFile << "All commands completed." << endl;
 	inFile.close();
 	outFile.close();
-	cout << "Commands have been written to mha9out.txt, closing output file.";
+	cout << "Commands have been written to mha9out.txt, "
+			"closing output file.";
+
 	return 0;
 }
 

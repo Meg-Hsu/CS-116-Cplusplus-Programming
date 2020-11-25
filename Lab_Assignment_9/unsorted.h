@@ -34,7 +34,9 @@ public:
 
 	void ResetList();
 	ItemType GetNextItem();
-	string SplitList(ItemType item, UnsortedType &list1, UnsortedType &list2);
+	string SplitList(ItemType item, UnsortedType
+			&list1, UnsortedType &list2);
+
 };
 
 #endif /* UNSORTED_H_ */

@@ -59,7 +59,8 @@ void UnsortedType::PutItem(ItemType item) {
 	length++;
 }
 
-ItemType UnsortedType::GetItem(ItemType &item, bool &found) {
+ItemType UnsortedType::GetItem(ItemType &item,
+		bool &found) {
 	bool moreToSearch;
 	NodeType *location;
 
@@ -118,13 +119,14 @@ ItemType UnsortedType::GetNextItem() {
 	return currentPos->info;
 }
 
-string UnsortedType::SplitList(ItemType item, UnsortedType &list1,
-		UnsortedType &list2) {
+string UnsortedType::SplitList(ItemType item,
+		UnsortedType &list1, UnsortedType &list2) {
 	string value;
 
 	ItemType location;
 	ResetList();
-	for (int counter = 1, length = GetLength(); counter <= length; counter++) {
+	for (int counter = 1, length = GetLength();
+			counter <= length; counter++) {
 		location = GetNextItem();
 
 		value += "Parsing Item: ";
